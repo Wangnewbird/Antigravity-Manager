@@ -1,0 +1,15 @@
+name: Sync Releases
+on:
+  schedule:
+    - cron: '8 * * * *'  # 每小时检查一次
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  sync-releases:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: aminya/action-sync-releases@v1.0.4
+        with:
+          source: lbjlaq/Antigravity_Manager
+          destination: Wangnewbird/Antigravity_Manager
+          token: ${{ secrets.GITHUB_TOKEN }}
